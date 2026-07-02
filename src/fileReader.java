@@ -10,6 +10,7 @@ public abstract class fileReader {
     fileReader(File file) {
         this.file = file;
         this.fileName = file.getName();
+        lines = new ArrayList<String>();
     }
 
     abstract void readFile();

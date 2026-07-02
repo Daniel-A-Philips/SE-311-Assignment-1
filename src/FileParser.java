@@ -25,8 +25,10 @@ public class FileParser {
         switch (this.permittedTypes.indexOf(fileType)) {
             case 0:
                 this.reader = new csvReader(createFile());
+                break;
             case 1:
                 this.reader = new txtReader(createFile());
+                break;
             case -1:
                 return;
         }

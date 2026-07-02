@@ -3,6 +3,12 @@ import java.util.List;
 
 public class test{
     void main() {
+        inputtedData();
+        fromFile("./Test Files/testInput.txt");
+
+    }
+
+    void inputtedData() {
         ArrayList<String> testData = new ArrayList<String>();
         testData.add("Crouching Tiger Hidden Dragon");
         testData.add("Humanistic Approach To Life");
@@ -11,13 +17,15 @@ public class test{
         Alphabetizer alphabetizer = new Alphabetizer(test);
         printArrayList(alphabetizer.getSorted());
 
-        testReader();
     }
 
-    void testReader() {
-        FileParser parser = new FileParser("./testInput.txt");
+    void fromFile(String fileName) {
+        FileParser parser = new FileParser(fileName);
         fileReader reader = parser.getReader();
-        printArrayList(reader.getLines());
+        System.out.println("\n");
+        CShift shift_reader = new CShift(reader.getLines());
+        Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
+        printArrayList(alphabetizer.getSorted());
     }
 
     void printArrayList(List<String> list) {
