@@ -10,6 +10,14 @@ public class test{
 
         Alphabetizer alphabetizer = new Alphabetizer(test);
         printArrayList(alphabetizer.getSorted());
+
+        testReader();
+    }
+
+    void testReader() {
+        FileParser parser = new FileParser("./testInput.txt");
+        fileReader reader = parser.getReader();
+        printArrayList(reader.getLines());
     }
 
     void printArrayList(List<String> list) {
