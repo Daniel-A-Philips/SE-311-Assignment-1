@@ -4,7 +4,9 @@ import java.util.List;
 public class test{
     void main() {
         inputtedData();
-        fromFile("./Test Files/testInput.txt");
+        fromTXT("./Test Files/testInput.txt");
+        fromCSV("./Test Files/testInput.csv");
+
 
     }
 
@@ -19,7 +21,7 @@ public class test{
 
     }
 
-    void fromFile(String fileName) {
+    void fromTXT(String fileName) {
         FileParser parser = new FileParser(fileName);
         fileReader reader = parser.getReader();
         System.out.println("\n");
@@ -27,6 +29,16 @@ public class test{
         Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
         printArrayList(alphabetizer.getSorted());
     }
+
+    void fromCSV(String fileName) {
+        FileParser parser = new FileParser(fileName);
+        fileReader reader = parser.getReader();
+        System.out.println("\n");
+        CShift shift_reader = new CShift(reader.getLines());
+        Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
+        printArrayList(alphabetizer.getSorted());
+    }
+
 
     void printArrayList(List<String> list) {
         list.forEach(System.out::println);
