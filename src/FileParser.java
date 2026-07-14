@@ -23,14 +23,16 @@ public class FileParser {
         String fileType = splitFileName[splitFileName.length-1];
 
         switch (this.permittedTypes.indexOf(fileType)) {
-            case 0:
+            case 0: // CSV
                 this.reader = new csvReader(createFile());
                 break;
-            case 1:
+            case 1: // TXT type file
                 this.reader = new txtReader(createFile());
                 break;
             case -1:
-                return;
+                System.err.println("File: " + this.fileName + " is not able to be parsed.\n" +
+                        "The current file types that can be parsed are: ");
+                this.permittedTypes.forEach(System.err::println);
         }
     }
 

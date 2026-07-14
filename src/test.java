@@ -3,11 +3,23 @@ import java.util.List;
 
 public class test{
     void main() {
-        inputtedData();
-        fromTXT("./Test Files/testInput.txt");
-        fromCSV("./Test Files/testInput.csv");
+        inputtedData(); // Test with straight inputted data
+        fromTXT("./Test Files/testInput.txt"); // Test with TXT
+        fromCSV("./Test Files/testInput.csv"); // Test with CSV
+
+        // Test error checking for filename
+        tryErrorFile("./Test Files/testInput.tvt");
+        tryErrorFile("./Test Files/testInput.csp");
 
 
+
+    }
+
+    void tryErrorFile(String fileName) {
+        try {
+            System.err.print("\n");
+            fromCSV(fileName);
+        } catch (Exception _){}
     }
 
     void inputtedData() {

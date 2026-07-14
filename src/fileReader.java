@@ -22,8 +22,8 @@ public abstract class fileReader {
      * Delegates any per-line transformation to processLine().
      */
     final void readFile() {
+        String line;
         try (BufferedReader reader = new BufferedReader(new FileReader(this.file))) {
-            String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(processLine(line));
             }
