@@ -10,16 +10,6 @@ public class test{
         // Test error checking for filename
         tryErrorFile("./Test Files/testInput.tvt");
         tryErrorFile("./Test Files/testInput.csp");
-
-
-
-    }
-
-    void tryErrorFile(String fileName) {
-        try {
-            System.err.print("\n");
-            fromCSV(fileName);
-        } catch (Exception _){}
     }
 
     void inputtedData() {
@@ -54,5 +44,12 @@ public class test{
 
     void printArrayList(List<String> list) {
         list.forEach(System.out::println);
+    }
+
+    void tryErrorFile(String fileName) {
+        try {
+            System.err.print("\n");
+            fromCSV(fileName);
+        } catch (Exception _){}
     }
 }
