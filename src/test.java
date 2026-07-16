@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class test{
@@ -21,6 +22,7 @@ public class test{
         Alphabetizer alphabetizer = new Alphabetizer(test);
         printArrayList(alphabetizer.getSorted());
 
+        if(checkData(alphabetizer.getSorted())) System.out.println("Everything matches");
     }
 
     void fromTXT(String fileName) {
@@ -51,5 +53,20 @@ public class test{
             System.err.print("\n");
             fromCSV(fileName);
         } catch (Exception _){}
+    }
+
+    boolean checkData(ArrayList<String> data) {
+        if (data.size() != 8) return false;
+        ArrayList<String> correct = new ArrayList<String>(Arrays.asList(("Approach To Life Humanistic\n" +
+                            "Crouching Tiger Hidden Dragon\n" +
+                            "Dragon Crouching Tiger Hidden\n" +
+                            "Hidden Dragon Crouching Tiger\n" +
+                            "Humanistic Approach To Life\n" +
+                            "Life Humanistic Approach To\n" +
+                            "Tiger Hidden Dragon Crouching\n" +
+                            "To Life Humanistic Approach").split("\n")));
+
+        if(correct.containsAll(data)) return true;
+        return false;
     }
 }
