@@ -132,4 +132,4 @@ directly, so the current output is very much reliant on console. The fix is to i
 `ConsoleWriter` that wraps the current behavior, and pass an `OutputWriter` into each
 class instead of calling `System.out` directly. `FileWriter`/`HtmlWriter`
 implementations could then be swapped in without touching `KeywordIndex`,
-`KeywordSearch`, or the KWIC printing logic. This can be implemented at the next itteration.
+`KeywordSearch`, or the KWIC printing logic. This can be implemented at the next itteration as I honestly didn't think of it until writing this!
