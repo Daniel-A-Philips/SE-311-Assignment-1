@@ -4,13 +4,10 @@ import java.util.ArrayList;
 public class FileParser {
 
     private final String fileName;
-    private final ArrayList<String> permittedTypes = new ArrayList<>();
     private FileReader reader;
 
     FileParser(String fileName) throws Exception {
         this.fileName = fileName;
-        this.permittedTypes.add("csv");
-        this.permittedTypes.add("txt");
         parseFileName();
     }
 
@@ -22,17 +19,15 @@ public class FileParser {
         String[] splitFileName = this.fileName.split("\\.");
         String fileType = splitFileName[splitFileName.length-1];
 
-        switch (this.permittedTypes.indexOf(fileType)) {
-            case 0: // CSV
+        switch (fileType) {
+            case "csv":
                 this.reader = new CsvReader(createFile());
                 break;
-            case 1: // TXT type file
+            case "txt":
                 this.reader = new TxtReader(createFile());
                 break;
-            case -1:
-                System.err.println("File: " + this.fileName + " is not able to be parsed.\n" +
-                        "The current file types that can be parsed are: ");
-                this.permittedTypes.forEach(System.err::println);
+            default:
+                System.err.println("File: " + this.fileName + " is not able to be parsed.\n");
                 throw new Exception("Wrong file type");
         }
     }

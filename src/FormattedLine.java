@@ -3,10 +3,10 @@ public class FormattedLine {
     private String data;
     private int originalLine;
 
-    FormattedLine(int Index, String Data, int OriginalLine) {
-        this.index = Index;
-        this.data = Data;
-        this.originalLine = OriginalLine;
+    FormattedLine(int index, String data, int originalLine) {
+        this.index = index;
+        this.data = data;
+        this.originalLine = originalLine;
     }
 
     FormattedLine(String Data, int OriginalLine) {
