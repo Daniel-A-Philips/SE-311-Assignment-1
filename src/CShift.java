@@ -7,16 +7,22 @@ public class CShift {
     private final ArrayList<String> lineInputs;
     private final ArrayList<String> shiftLines;
     private final Map<String, ArrayList<String>> shiftLinesGrouped;
+    private final ArrayList<formattedLine> formattedLines;
 
     CShift(ArrayList<String> lineInputs) {
         shiftLines = new ArrayList<String>();
         shiftLinesGrouped = new HashMap<>();
+        formattedLines = new ArrayList<formattedLine>();
         this.lineInputs = lineInputs;
         createKWIC();
     }
 
     private void createKWIC() {
-        this.lineInputs.forEach(line -> addLine(line, createPermutations(line)));
+        for(int i = 0; i < this.lineInputs.size(); i++) {
+            String line = lineInputs.get(i);
+            addLine(line, createPermutations(line, i+1));
+        }
+        //this.lineInputs.forEach(line -> addLine(line, createPermutations(line)));
     }
 
     private void addLine(String line, ArrayList<String> permutated) {
@@ -25,13 +31,20 @@ public class CShift {
     }
 
     private ArrayList<String> createPermutations(String line) {
+        return createPermutations(line, 0);
+    }
+
+    private ArrayList<String> createPermutations(String line, int lineNum) {
         ArrayList<String> splitLine = new ArrayList<>(Arrays.asList(line.split(" ")));
         ArrayList<String> toReturn = new ArrayList<String>();
+        String extractedLine;
         for(int i = 0; i < splitLine.size(); i++) {
-            toReturn.add(String.join(" ",splitLine));
+            extractedLine = String.join(" ",splitLine);
+            toReturn.add(extractedLine);
             // Add the first to the end, then remove it
             splitLine.add(splitLine.getFirst());
             splitLine.removeFirst();
+            formattedLines.add(new formattedLine(extractedLine, lineNum));
         }
         return toReturn;
     }
@@ -42,5 +55,9 @@ public class CShift {
 
     public Map<String, ArrayList<String>> getPermutationsByLine() {
         return this.shiftLinesGrouped;
+    }
+
+    public ArrayList<formattedLine> getFormattedLines() {
+        return formattedLines;
     }
 }

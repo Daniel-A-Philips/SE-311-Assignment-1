@@ -7,7 +7,7 @@ public class FileParser {
     private final ArrayList<String> permittedTypes = new ArrayList<>();
     private fileReader reader;
 
-    FileParser(String fileName) {
+    FileParser(String fileName) throws Exception {
         this.fileName = fileName;
         this.permittedTypes.add("csv");
         this.permittedTypes.add("txt");
@@ -18,7 +18,7 @@ public class FileParser {
         return new File(this.fileName);
     }
 
-    private void parseFileName() {
+    private void parseFileName() throws Exception {
         String[] splitFileName = this.fileName.split("\\.");
         String fileType = splitFileName[splitFileName.length-1];
 
@@ -33,6 +33,7 @@ public class FileParser {
                 System.err.println("File: " + this.fileName + " is not able to be parsed.\n" +
                         "The current file types that can be parsed are: ");
                 this.permittedTypes.forEach(System.err::println);
+                throw new Exception("Wrong file type");
         }
     }
 

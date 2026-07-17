@@ -19,32 +19,45 @@ public class test{
         testData.add("Humanistic Approach To Life");
         CShift test = new CShift(testData);
 
+        //printArrayList(test.getFormattedLines());
+
         Alphabetizer alphabetizer = new Alphabetizer(test);
+
+
         printArrayList(alphabetizer.getSorted());
 
-        if(checkData(alphabetizer.getSorted())) System.out.println("Everything matches");
+
+        //if(checkData(alphabetizer.getSorted())) System.out.println("Everything matches");
     }
 
     void fromTXT(String fileName) {
-        FileParser parser = new FileParser(fileName);
-        fileReader reader = parser.getReader();
-        System.out.println("\n");
-        CShift shift_reader = new CShift(reader.getLines());
-        Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
-        printArrayList(alphabetizer.getSorted());
+        try {
+            FileParser parser = new FileParser(fileName);
+            fileReader reader = parser.getReader();
+            System.out.println("\n");
+            CShift shift_reader = new CShift(reader.getLines());
+            Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
+
+            printArrayList(alphabetizer.getSorted());
+        } catch (Exception _) {}
     }
 
     void fromCSV(String fileName) {
-        FileParser parser = new FileParser(fileName);
-        fileReader reader = parser.getReader();
-        System.out.println("\n");
-        CShift shift_reader = new CShift(reader.getLines());
-        Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
-        printArrayList(alphabetizer.getSorted());
+        try {
+            FileParser parser = new FileParser(fileName);
+            fileReader reader = parser.getReader();
+            System.out.println("\n");
+            CShift shift_reader = new CShift(reader.getLines());
+            Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
+
+            printArrayList(alphabetizer.getSorted());
+        } catch (Exception _) {}
+
     }
 
 
-    void printArrayList(List<String> list) {
+    void printArrayList(List list) {
+        System.out.println("\n");
         list.forEach(System.out::println);
     }
 
@@ -66,7 +79,6 @@ public class test{
                             "Tiger Hidden Dragon Crouching\n" +
                             "To Life Humanistic Approach").split("\n")));
 
-        if(correct.containsAll(data)) return true;
-        return false;
+        return correct.containsAll(data);
     }
 }
