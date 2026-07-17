@@ -22,7 +22,7 @@ public class AlphabetizerOld {
 }*/
 
 public class Alphabetizer{
-    private final ArrayList<formattedLine> shifted;
+    private final ArrayList<FormattedLine> shifted;
 
     Alphabetizer(CShift shift) {
         this.shifted = shift.getFormattedLines();
@@ -31,10 +31,10 @@ public class Alphabetizer{
 
     private void sort() {
         // Descending order
-        this.shifted.sort(Comparator.comparing(a -> a.Data, String.CASE_INSENSITIVE_ORDER));    }
+        this.shifted.sort(Comparator.comparing(FormattedLine::getData, String.CASE_INSENSITIVE_ORDER));    }
 
-    public ArrayList<formattedLine> getSorted() {
-        for(int i = 0; i < shifted.size(); i++) shifted.get(i).Index = i+1;
+    public ArrayList<FormattedLine> getSorted() {
+        for(int i = 0; i < shifted.size(); i++) shifted.get(i).setIndex(i+1);
         return shifted;
     }
 

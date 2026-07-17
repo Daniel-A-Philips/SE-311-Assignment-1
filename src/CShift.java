@@ -7,12 +7,12 @@ public class CShift {
     private final ArrayList<String> lineInputs;
     private final ArrayList<String> shiftLines;
     private final Map<String, ArrayList<String>> shiftLinesGrouped;
-    private final ArrayList<formattedLine> formattedLines;
+    private final ArrayList<FormattedLine> formattedLines;
 
     CShift(ArrayList<String> lineInputs) {
         shiftLines = new ArrayList<String>();
         shiftLinesGrouped = new HashMap<>();
-        formattedLines = new ArrayList<formattedLine>();
+        formattedLines = new ArrayList<FormattedLine>();
         this.lineInputs = lineInputs;
         createKWIC();
     }
@@ -44,7 +44,7 @@ public class CShift {
             // Add the first to the end, then remove it
             splitLine.add(splitLine.getFirst());
             splitLine.removeFirst();
-            formattedLines.add(new formattedLine(extractedLine, lineNum));
+            formattedLines.add(new FormattedLine(extractedLine, lineNum));
         }
         return toReturn;
     }
@@ -57,7 +57,7 @@ public class CShift {
         return this.shiftLinesGrouped;
     }
 
-    public ArrayList<formattedLine> getFormattedLines() {
+    public ArrayList<FormattedLine> getFormattedLines() {
         return formattedLines;
     }
 }

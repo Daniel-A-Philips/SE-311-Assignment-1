@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class test{
+public class KwicManualTest {
     void main() {
         String[] testInput = new String[1];
         testInput[0] = "./Test Files/testInput.csv";
@@ -29,7 +29,7 @@ public class test{
     void fromTXT(String fileName) {
         try {
             FileParser parser = new FileParser(fileName);
-            fileReader reader = parser.getReader();
+            FileReader reader = parser.getReader();
             System.out.println("\n");
             CShift shift_reader = new CShift(reader.getLines());
             Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
@@ -41,7 +41,7 @@ public class test{
     void fromCSV(String fileName) {
         try {
             FileParser parser = new FileParser(fileName);
-            fileReader reader = parser.getReader();
+            FileReader reader = parser.getReader();
             System.out.println("\n");
             CShift shift_reader = new CShift(reader.getLines());
             Alphabetizer alphabetizer = new Alphabetizer(shift_reader);

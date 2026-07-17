@@ -1,8 +1,8 @@
 import java.io.File;
 
-public class csvReader extends fileReader {
+public class CsvReader extends FileReader {
 
-    public csvReader(File file) {
+    public CsvReader(File file) {
         super(file);
         readFile();
     }

@@ -12,7 +12,7 @@ public class Main {
         ArrayList<String> lines;
         try {
             FileParser parser = new FileParser(args[0]);
-            fileReader reader = parser.getReader();
+            FileReader reader = parser.getReader();
             lines = reader.getLines();
         } catch (Exception e) {
             System.err.println("Could not read file: " + args[0]);

@@ -5,7 +5,7 @@ public class FileParser {
 
     private final String fileName;
     private final ArrayList<String> permittedTypes = new ArrayList<>();
-    private fileReader reader;
+    private FileReader reader;
 
     FileParser(String fileName) throws Exception {
         this.fileName = fileName;
@@ -24,10 +24,10 @@ public class FileParser {
 
         switch (this.permittedTypes.indexOf(fileType)) {
             case 0: // CSV
-                this.reader = new csvReader(createFile());
+                this.reader = new CsvReader(createFile());
                 break;
             case 1: // TXT type file
-                this.reader = new txtReader(createFile());
+                this.reader = new TxtReader(createFile());
                 break;
             case -1:
                 System.err.println("File: " + this.fileName + " is not able to be parsed.\n" +
@@ -37,7 +37,7 @@ public class FileParser {
         }
     }
 
-    public fileReader getReader() {
+    public FileReader getReader() {
         return this.reader;
     }
 }
