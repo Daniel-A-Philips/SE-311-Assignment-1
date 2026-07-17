@@ -4,13 +4,9 @@ import java.util.List;
 
 public class test{
     void main() {
-        inputtedData(); // Test with straight inputted data
-        fromTXT("./Test Files/testInput.txt"); // Test with TXT
-        fromCSV("./Test Files/testInput.csv"); // Test with CSV
-
-        // Test error checking for filename
-        tryErrorFile("./Test Files/testInput.tvt");
-        tryErrorFile("./Test Files/testInput.csp");
+        String[] testInput = new String[1];
+        testInput[0] = "./Test Files/testInput.csv";
+        Main.main(testInput);
     }
 
     void inputtedData() {

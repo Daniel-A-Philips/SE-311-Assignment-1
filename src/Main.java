@@ -49,6 +49,8 @@ public class Main {
                 System.out.println("Unknown command: " + command);
                 System.out.println("Supported commands: kwic, search <keyword>, index, quit");
             }
+            System.out.println("\nEnter a command (kwic, search <keyword>, index, quit):");
+
         }
 
         scanner.close();
