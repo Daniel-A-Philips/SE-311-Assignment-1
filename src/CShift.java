@@ -30,10 +30,6 @@ public class CShift {
         this.shiftLinesGrouped.put(line, permutated);
     }
 
-    private ArrayList<String> createPermutations(String line) {
-        return createPermutations(line, 0);
-    }
-
     private ArrayList<String> createPermutations(String line, int lineNum) {
         ArrayList<String> splitLine = new ArrayList<>(Arrays.asList(line.split(" ")));
         ArrayList<String> toReturn = new ArrayList<String>();

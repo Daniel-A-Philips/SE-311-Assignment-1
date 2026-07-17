@@ -35,7 +35,7 @@ public class KwicManualTest {
             Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
 
             printArrayList(alphabetizer.getSorted());
-        } catch (Exception _) {}
+        } catch (Exception e) {}
     }
 
     void fromCSV(String fileName) {
@@ -47,7 +47,7 @@ public class KwicManualTest {
             Alphabetizer alphabetizer = new Alphabetizer(shift_reader);
 
             printArrayList(alphabetizer.getSorted());
-        } catch (Exception _) {}
+        } catch (Exception e) {}
 
     }
 
@@ -61,7 +61,7 @@ public class KwicManualTest {
         try {
             System.err.print("\n");
             fromCSV(fileName);
-        } catch (Exception _){}
+        } catch (Exception e){}
     }
 
     boolean checkData(ArrayList<String> data) {
