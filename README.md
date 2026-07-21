@@ -1,6 +1,6 @@
 # Assignment 1: KWIC System
 
-Console-based Key Word In Context (KWIC) system in Java.
+Daniel Philips - dap372 - Console-based Key Word In Context (KWIC) system in Java.
 
 ## Compile
 
@@ -21,7 +21,7 @@ java -cp out Main "Test Files/testInput.txt"
 ```
 
 ## Commands
-
+Upon completion of a command, you will be returned to the main menu.
 - `kwic`: prints all circular shifts of every line, alphabetized, as
   `Index | Circular Shifted Line | Original Line Index`
 - `search <keyword>`: prints original sentences containing `<keyword>` (case-insensitive,
@@ -29,7 +29,7 @@ java -cp out Main "Test Files/testInput.txt"
   if there are none
 - `index`: prints every distinct word alphabetically, followed by the line number(s)
   it appears on
-- `quit`: exits
+- `quit`
 
 Example:
 

@@ -30,3 +30,6 @@ bin/
 .DS_Store
 .claude/settings.local.json
 /UML_DESIGN.md-out
+/DV8 output
+Archive.zip
+DV8 output.zip

@@ -28,6 +28,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a command (kwic, search <keyword>, index, quit):");
 
+        runLoop(scanner, alphabetizer, search, index);
+
+        scanner.close();
+    }
+
+    private static void runLoop(Scanner scanner, Alphabetizer alphabetizer, KeywordSearch search, KeywordIndex index) {
         while (scanner.hasNextLine()) {
             String command = scanner.nextLine().trim();
             if (command.isEmpty()) continue;
@@ -52,8 +58,6 @@ public class Main {
             System.out.println("\nEnter a command (kwic, search <keyword>, index, quit):");
 
         }
-
-        scanner.close();
     }
 
     private static void printKWIC(Alphabetizer alphabetizer) {
