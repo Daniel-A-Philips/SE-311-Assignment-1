@@ -26,7 +26,6 @@ public class Main {
         KeywordIndex index = new KeywordIndex(lines);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a command (kwic, search <keyword>, index, quit):");
 
         runLoop(scanner, alphabetizer, search, index);
 
@@ -34,6 +33,7 @@ public class Main {
     }
 
     private static void runLoop(Scanner scanner, Alphabetizer alphabetizer, KeywordSearch search, KeywordIndex index) {
+        System.out.println("Enter a command (kwic, search <keyword>, index, quit):");
         while (scanner.hasNextLine()) {
             String command = scanner.nextLine().trim();
             if (command.isEmpty()) continue;
